@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Verify</title>
+</head>
+<body style="padding: 2vh">
+Verify DOCS <br>
+{% for applicant in applicants %}
+    {% if not applicant.approved %}
+        {{ applicant.name }} | <a href="mailto:{{ applicant.email }}">{{ applicant.email }}</a> |
+        <a href="{{ MEDIA_URL }}{{ applicant.doc }}" target="blank">
+            <button>View document</button>
+        </a>
+        |
+        <a href="{% url 'approve' applicant.id %}">
+            <button> APPROVE</button>
+        </a><br>
+    {% endif %}
+{% endfor %}
+</body>
+</html>
