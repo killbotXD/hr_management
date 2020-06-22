@@ -1,6 +1,7 @@
 *.sqlite3
 files
 venv
+env
 .idea
 __pycache__/
 *.py[cod]
